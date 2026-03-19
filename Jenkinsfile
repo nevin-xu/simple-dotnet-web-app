@@ -7,8 +7,7 @@ pipeline {
                 bat 'dotnet build --no-restore' 
             }
         }
-    }
-    stage('Test') {
+        stage('Test') {
             steps {
                 bat 'dotnet test --no-build --no-restore --collect "XPlat Code Coverage"'
             }
@@ -18,4 +17,5 @@ pipeline {
                 }
             }
         }
+    }
 }
