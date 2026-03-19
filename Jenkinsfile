@@ -17,5 +17,15 @@ pipeline {
                 }
             }
         }
+        stage('Deliver') {
+            steps {
+                bat 'dotnet publish SimpleWebApi --no-restore -o published'
+            }
+            post {
+                success {
+                    archiveArtifacts 'published/*.*'
+                }
+            }
+        }
     }
 }
